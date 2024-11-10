@@ -6,11 +6,9 @@
     public int NumeroParticipantes { get; set; }
     public string Local { get; set; }
     public decimal CustoPorParticipante { get; set; }
-
-    // Propriedade para o custo total
+     
     public decimal CustoTotal => NumeroParticipantes * CustoPorParticipante;
 
-    // Nova propriedade para armazenar a duração
     public int Duracao { get; set; }
 
     public Evento() { }
