@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCadastroDeEventos.Views.EventoContratado"
+             Title="Resumo do Evento"
+             BackgroundColor="#F0F0FF">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+
+            <!-- Título -->
+            <Label Text="Resumo do Evento"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   TextColor="#5A2D82"
+                   HorizontalOptions="Center" 
+                   Margin="0,0,0,20" />
+
+            <!-- Evento -->
+            <StackLayout Padding="10" BackgroundColor="#E6E6FA" Margin="0,10">
+                <Label Text="Evento:"
+                       TextColor="#5A2D82"
+                       FontAttributes="Italic" />
+                <Label Text="{Binding Nome}"
+                       FontSize="26"
+                       TextColor="#7A4B99"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+
+            <!-- Local -->
+            <StackLayout Padding="10" BackgroundColor="#E6E6FA" Margin="0,10">
+                <Label Text="Local:"
+                       TextColor="#5A2D82"
+                       FontAttributes="Italic" />
+                <Label Text="{Binding Local}"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#7A4B99"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+
+            <!-- Data Início -->
+            <StackLayout Padding="10" BackgroundColor="#E6E6FA" Margin="0,10">
+                <Label Text="Data de Início:"
+                       TextColor="#5A2D82"
+                       FontAttributes="Italic" />
+                <Label Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}"
+                       TextColor="#7A4B99"
+                       FontSize="20" />
+            </StackLayout>
+
+            <!-- Data Término -->
+            <StackLayout Padding="10" BackgroundColor="#E6E6FA" Margin="0,10">
+                <Label Text="Data de Término:"
+                       TextColor="#5A2D82"
+                       FontAttributes="Italic" />
+                <Label Text="{Binding DataTermino, StringFormat='{0:dd/MM/yyyy}'}"
+                       TextColor="#7A4B99"
+                       FontSize="20" />
+            </StackLayout>
+
+            <!-- Número de Participantes -->
+            <StackLayout Padding="10" BackgroundColor="#E6E6FA" Margin="0,10">
+                <Label Text="Número de Participantes:"
+                       TextColor="#5A2D82"
+                       FontAttributes="Italic" />
+                <Label Text="{Binding NumeroParticipantes}"
+                       TextColor="#7A4B99"
+                       FontSize="20" />
+            </StackLayout>
+
+            <!-- Preço por Participante -->
+            <StackLayout Padding="10" BackgroundColor="#E6E6FA" Margin="0,10">
+                <Label Text="Custo por Participante:"
+                       TextColor="#5A2D82"
+                       FontAttributes="Italic" />
+                <Label Text="{Binding CustoPorParticipante, StringFormat='R$ {0:F2}'}"
+                       TextColor="#7A4B99"
+                       FontSize="20" />
+            </StackLayout>
+
+            <!-- Custo Total -->
+            <StackLayout Padding="10" BackgroundColor="#E6E6FA" Margin="0,10">
+                <Label Text="Custo Total:"
+                       TextColor="#5A2D82"
+                       FontAttributes="Italic"
+                       FontSize="Large" />
+                <Label Text="{Binding CustoTotal, StringFormat='R$ {0:F2}'}"
+                       TextColor="#7A4B99"
+                       FontSize="24"
+                       FontAttributes="Bold" />
+            </StackLayout>
+
+            <!-- Duração do Evento -->
+            <StackLayout Padding="10" BackgroundColor="#E6E6FA" Margin="0,10">
+                <Label Text="Duração do Evento (em dias):"
+           TextColor="#5A2D82"
+           FontAttributes="Italic" />
+                <Label Text="{Binding Duracao}"
+           TextColor="#7A4B99"/>
+            </StackLayout>
+
+
+            <!-- Botão Voltar -->
+            <Button Text="Voltar"
+                    TextColor="White"
+                    BackgroundColor="#5A2D82"
+                    FontSize="22"
+                    Padding="10,5"
+                    Clicked="OnBackButtonClicked"
+                    Margin="0,20"
+                    HeightRequest="50" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+

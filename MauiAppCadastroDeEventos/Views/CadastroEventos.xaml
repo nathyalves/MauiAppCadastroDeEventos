@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCadastroDeEventos.Views.CadastroEventos"
+             Title="CadastroEventos"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#E6E6FA">
+    <!-- Lavanda claro -->
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10"
+                         Spacing="10">
+
+        <Label Text="Cadastro de Evento"
+               FontFamily="Poppins"
+               FontSize="50"
+               TextColor="#5A2D82" />
+        <!-- Roxo ameno -->
+
+        <Frame Padding="10">
+            <VerticalStackLayout>
+
+                <!--Nome do evento-->
+                <StackLayout Padding="10">
+                    <Label Text="Nome do Evento"
+                       FontSize="Medium"
+                       Margin="0,0,0,5" 
+                       TextColor="#7A4B99"/>
+                    <!-- Roxo intermediário -->
+
+                    <Entry Placeholder="Digite o nome do evento"
+                           x:Name="NomeEventoEntry"
+                           FontSize="15"
+                           Margin="0,0,0,10"
+                           HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <!--Local do evento-->
+                <StackLayout Padding="10">
+                    <Label Text="Local do Evento"
+                       FontSize="Medium"
+                       Margin="0,0,0,5" 
+                       TextColor="#7A4B99"/>
+                    <!-- Roxo intermediário -->
+
+                    <Entry Placeholder="Digite o local do evento"
+                           x:Name="LocalEventoEntry"
+                           FontSize="15"
+                           Margin="0,0,0,10"
+                           HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <!-- Número de participantes -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Label com a descrição -->
+                    <Label Grid.Row="0" Grid.Column="0"
+                       Text="Número de participantes:"
+                       FontSize="15"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                    <!-- Label para mostrar o valor -->
+                    <Label Grid.Row="0" Grid.Column="1"
+                       TextColor="#7A4B99"
+                       Text="{Binding Value}"
+                       BindingContext="{x:Reference stp_participantes}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                    <!-- Stepper -->
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                         x:Name="stp_participantes"
+                         Minimum="0"
+                         Maximum="100"
+                         Increment="1"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center" />
+                </Grid>
+
+                <!--Duração do evento-->
+                <Frame Padding="10" Margin="10">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Duração do evento"
+                               TextTransform="Uppercase"
+                               FontSize="Subtitle"
+                               TextColor="#6A0DAD"/>
+                        <!-- Roxo realçado -->
+
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Data de início:" />
+                            <DatePicker x:Name="dtpck_inicio"
+                                        Date="{Binding DataInicio}"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Data de término:" />
+                            <DatePicker x:Name="dtpck_termino"
+                                        Date="{Binding DataTermino}"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!--Preço-->
+                <StackLayout Padding="10">
+                    <Label Text="Preço por participante:" FontSize="15" />
+                    <Entry Placeholder="R$ 0,00"
+                           x:Name="CustoEntry"
+                           Keyboard="Numeric"
+                           TextColor="#7A4B99"
+                           HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <Button Text="Avançar" Clicked="Button_Clicked"
+                        BackgroundColor="#6A0DAD"
+                        TextColor="White"/>
+                <!-- Roxo realçado -->
+
+            </VerticalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+
+</ContentPage>
+
